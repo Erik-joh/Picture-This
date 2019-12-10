@@ -1,4 +1,4 @@
-<?php require __DIR__.'/views/header.php'; ?>
+<?php require __DIR__ . '/views/header.php'; ?>
 
 <article>
     <h1>Register</h1>
@@ -17,7 +17,7 @@
         </div><!-- /form-group -->
 
         <div>
-        <label for="name">Enter your name here:</label>
+            <label for="name">Enter your name here:</label>
             <input class="form-control" type="name" name="name" required>
             <small class="form-text text-muted">Please provide a name</small>
         </div>
@@ -26,4 +26,4 @@
     </form>
 </article>
 
-<?php require __DIR__.'/views/footer.php'; ?>
+<?php require __DIR__ . '/views/footer.php'; ?>
