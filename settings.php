@@ -1,5 +1,15 @@
 <?php require __DIR__ . '/views/header.php'; ?>
+<article>
+    <h1>Upload Avatar</h1>
+    <form action="app/users/uploadAvatar.php" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="avatar">Choose a PNG image to upload</label>
+            <input type="file" name="avatar" id="avatar" accept=".png" required>
+        </div>
 
+        <button type="submit">Upload</button>
+    </form>
+</article>
 <article>
     <h1>Edit profile</h1>
 
