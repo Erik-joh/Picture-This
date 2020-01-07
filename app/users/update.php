@@ -10,11 +10,36 @@ if (isset($_POST['email'], $_POST['name'], $_POST['biography'], $_POST['password
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
     $biography = filter_var($_POST['biography'], FILTER_SANITIZE_STRING);
+    $id = $_SESSION['user']['id'];
     $statement = $pdo->prepare('SELECT password FROM users WHERE id=:id');
-    $statement->execute([':id' => $_SESSION['user']['id']]);
+    $statement->execute([':id' => $id]);
     $password = $statement->fetch(PDO::FETCH_ASSOC);
     if (password_verify($_POST['password'], $password['password'])) {
-        $statement = $pdo->prepare('UPDATE users SET name=:name, email=:email, biography=:biography;');
-        $statement->execute([':name' => $name, ':email' => $email, ':biography' => $biography]);
+        if (isset($_POST['newPassword'])) {
+            $newPassword = password_hash($_POST['newPassword'], PASSWORD_BCRYPT);
+            $statement = $pdo->prepare('UPDATE users SET name=:name, password=:newPassword, email=:email, biography=:biography WHERE id =:id');
+            $statement->execute([
+                ':name' => $name,
+                ':newPassword' => $newPassword,
+                ':email' => $email,
+                ':biography' => $biography,
+                ':id' => $id
+            ]);
+            $_SESSION['user']['password'] = $newPassword;
+        } else {
+            $statement = $pdo->prepare('UPDATE users SET name=:name, email=:email, biography=:biography WHERE id =:id');
+            $statement->execute([
+                ':name' => $name,
+                ':email' => $email,
+                ':biography' => $biography,
+                ':id' => $id
+            ]);
+        }
+        $_SESSION['user']['name'] = $name;
+        $_SESSION['user']['email'] = $email;
+        if ($_POST['biography'] !== 'Empty') {
+            $_SESSION['user']['biography'] = $biography;
+        }
     }
 }
+redirect('/settings.php');

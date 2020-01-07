@@ -3,7 +3,7 @@
 <article>
     <h1>Edit profile</h1>
 
-    <form action="app/users/register.php" method="post">
+    <form action="app/users/update.php" method="post">
         <div class="form-group">
             <label for="email">Enter new email here:</label>
             <input class="form-control" type="email" name="email" value="<?php echo $_SESSION['user']['email'] ?>">
