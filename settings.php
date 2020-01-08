@@ -6,6 +6,7 @@
             <label for="avatar">Choose a PNG image to upload</label>
             <input type="file" name="avatar" id="avatar" accept=".png" required>
         </div>
+        <span><img src="/app/users/../../assets/images/avatars/200107-mistletoe.png"></span>
 
         <button type="submit">Upload</button>
     </form>
