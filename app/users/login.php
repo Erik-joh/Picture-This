@@ -20,7 +20,7 @@ if (isset($_POST['email'], $_POST['password'])) {
     //checks password if password is correct and sets session user and redirects to index.php
     if (password_verify($_POST['password'], $user['password'])) {
         unset($user['password']);
-        $_SESSION['user'] = $user;
+        $_SESSION['user']['id'] = $user['id'];
         redirect('/');
     }
 }

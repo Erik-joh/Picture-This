@@ -16,8 +16,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="/settings.php">Settings</a>
             </li>
-            <img src="<?php if (isset($_SESSION['user']['id'])) {
-                            echo getUserById($_SESSION['user']['id'], $pdo)['avatar'];
+            <img src="<?php if (isset($id)) {
+                            echo getUserById($id, $pdo)['avatar'];
                         } ?>" class="avatar-navigation">
         <?php else : ?>
             <li class="nav-item">

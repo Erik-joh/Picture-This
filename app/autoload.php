@@ -19,3 +19,7 @@ $config = require __DIR__ . '/config.php';
 
 // Setup the database connection.
 $pdo = new PDO($config['database_path']);
+
+if (isset($_SESSION['user'])) {
+    $id = $_SESSION['user']['id'];
+}

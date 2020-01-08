@@ -10,7 +10,6 @@ if (isset($_POST['email'], $_POST['name'], $_POST['biography'], $_POST['password
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
     $biography = filter_var($_POST['biography'], FILTER_SANITIZE_STRING);
-    $id = $_SESSION['user']['id'];
     $statement = $pdo->prepare('SELECT password FROM users WHERE id=:id');
     $statement->execute([':id' => $id]);
     $password = $statement->fetch(PDO::FETCH_ASSOC);
@@ -25,7 +24,6 @@ if (isset($_POST['email'], $_POST['name'], $_POST['biography'], $_POST['password
                 ':biography' => $biography,
                 ':id' => $id
             ]);
-            $_SESSION['user']['password'] = $newPassword;
         } else {
             $statement = $pdo->prepare('UPDATE users SET name=:name, email=:email, biography=:biography WHERE id =:id');
             $statement->execute([
@@ -34,11 +32,6 @@ if (isset($_POST['email'], $_POST['name'], $_POST['biography'], $_POST['password
                 ':biography' => $biography,
                 ':id' => $id
             ]);
-        }
-        $_SESSION['user']['name'] = $name;
-        $_SESSION['user']['email'] = $email;
-        if ($_POST['biography'] !== 'Empty') {
-            $_SESSION['user']['biography'] = $biography;
         }
     }
 }

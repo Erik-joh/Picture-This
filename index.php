@@ -4,7 +4,7 @@
     <h1><?php echo $config['title']; ?></h1>
     <p>This is the home page.</p>
     <?php if (isset($_SESSION['user'])) : ?>
-        <h2>Welcome <?php echo $_SESSION['user']['name']; ?>!</h2>
+        <h2>Welcome <?php echo getUserById($id, $pdo)['name']; ?>!</h2>
     <?php endif; ?>
 </article>
 
