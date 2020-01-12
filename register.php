@@ -2,6 +2,7 @@
 
 <article>
     <h1>Register</h1>
+    <?php require __DIR__ . '/views/error.php'; ?>
 
     <form action="app/users/register.php" method="post">
         <div class="form-group">

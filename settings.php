@@ -1,5 +1,6 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 <article>
+    <?php require __DIR__ . '/views/error.php'; ?>
     <h1>Upload Avatar</h1>
     <form action="app/users/uploadAvatar.php" method="post" enctype="multipart/form-data">
         <div>

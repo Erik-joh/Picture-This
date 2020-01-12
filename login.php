@@ -1,8 +1,10 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
+
+
 <article>
     <h1>Login</h1>
-
+    <?php require __DIR__ . '/views/error.php' ?>
     <form action="app/users/login.php" method="post">
         <div class="form-group">
             <label for="email">Email</label>

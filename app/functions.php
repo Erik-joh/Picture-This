@@ -9,20 +9,60 @@ if (!function_exists('redirect')) {
      *
      * @return void
      */
-    function redirect(string $path)
+    function redirect(string $path): void
     {
         header("Location: ${path}");
         exit;
     }
 }
 
-/**
- *
- */
-function getUserById(int $id, PDO $pdo)
-{
-    $statement = $pdo->prepare('SELECT * FROM users WHERE id=:id');
-    $statement->execute([':id' => $id]);
-    $user = $statement->fetch(PDO::FETCH_ASSOC);
-    return $user;
+if (!function_exists('getUserById')) {
+    /**
+     *returns user data by id
+     *
+     * @param int $id
+     * @param PDO $pdo
+     *
+     * @return array
+     */
+    function getUserById(int $id, PDO $pdo): array
+    {
+        $statement = $pdo->prepare('SELECT * FROM users WHERE id=:id');
+        $statement->execute([':id' => $id]);
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
+        return $user;
+    }
+}
+if (!function_exists('errorMessage')) {
+    /**
+     * adds an error message to session error variable
+     *
+     * @param string $error
+     *
+     * @return void
+     */
+    function errorMessage(string $error): void
+    {
+        $_SESSION['errors'][] = $error;
+    }
+}
+if (!function_exists('userExists')) {
+    /**
+     * checks if user exists by email and return true/false
+     *
+     *@param string $email
+     *@param PDO $pdo
+     *
+     * @return bool
+     */
+    function userExists(string $email, PDO $pdo): bool
+    {
+        $statement = $pdo->prepare('SELECT id from users WHERE email=:email');
+        $statement->execute([':email' => $email]);
+        $id = $statement->fetch(PDO::FETCH_ASSOC);
+        if (!$id) {
+            return false;
+        }
+        return true;
+    }
 }

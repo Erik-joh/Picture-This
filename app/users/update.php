@@ -13,6 +13,7 @@ if (isset($_POST['email'], $_POST['name'], $_POST['biography'], $_POST['password
     $statement = $pdo->prepare('SELECT password FROM users WHERE id=:id');
     $statement->execute([':id' => $id]);
     $password = $statement->fetch(PDO::FETCH_ASSOC);
+
     if (password_verify($_POST['password'], $password['password'])) {
         if (isset($_POST['newPassword'])) {
             $newPassword = password_hash($_POST['newPassword'], PASSWORD_BCRYPT);
@@ -34,5 +35,6 @@ if (isset($_POST['email'], $_POST['name'], $_POST['biography'], $_POST['password
             ]);
         }
     }
+    errorMessage('Wrong password');
 }
 redirect('/settings.php');

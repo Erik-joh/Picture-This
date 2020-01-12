@@ -14,6 +14,7 @@ if (isset($_POST['email'], $_POST['password'])) {
 
     //if user is empty redirects to login.php
     if ($user === false) {
+        errorMessage('Password or email is wrong');
         redirect('/login.php');
     }
 
@@ -23,4 +24,6 @@ if (isset($_POST['email'], $_POST['password'])) {
         $_SESSION['user']['id'] = $user['id'];
         redirect('/');
     }
+    errorMessage('Password or email is wrong');
+    redirect('/login.php');
 }
