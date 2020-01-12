@@ -6,10 +6,10 @@
             <a class="nav-link" href="/index.php">Home</a>
         </li><!-- /nav-item -->
 
-        <li class="nav-item">
-            <a class="nav-link" href="/about.php">About</a>
-        </li><!-- /nav-item -->
         <?php if (isset($_SESSION['user'])) : ?>
+            <li class="nav-item">
+                <a class="nav-link" href="/post.php">Post</a>
+            </li><!-- /nav-item -->
             <li class="nav-item">
                 <a class="nav-link" href="/app/users/logout.php">Logout</a>
             </li>
