@@ -11,6 +11,9 @@
                 <a class="nav-link" href="/post.php">Post</a>
             </li><!-- /nav-item -->
             <li class="nav-item">
+                <a class="nav-link" href="/myPosts.php">My Posts</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/app/users/logout.php">Logout</a>
             </li>
             <li class="nav-item">
