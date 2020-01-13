@@ -102,3 +102,20 @@ if (!function_exists('getAuthor')) {
         return $name['name'];
     }
 }
+if (!function_exists('getAllPosts')) {
+    /**
+     * returns an array with all posts in the
+     *
+     *@param PDO $pdo
+     *
+     * @return array
+     */
+    function getAllPosts(PDO $pdo): array
+    {
+        $statement = $pdo->prepare('SELECT * FROM posts');
+        $statement->execute();
+        $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $posts;
+    }
+}
