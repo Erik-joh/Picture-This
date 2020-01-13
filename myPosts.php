@@ -1,7 +1,7 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 <?php $posts = getUsersPosts($id, $pdo) ?>
 
-<article class="posts-container">
+<article class="my-posts-container">
     <?php require __DIR__ . '/views/error.php'; ?>
     <?php foreach ($posts as $post) :
     ?>

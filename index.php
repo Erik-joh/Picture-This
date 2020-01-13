@@ -1,11 +1,16 @@
 <?php require __DIR__ . '/views/header.php'; ?>
+<?php $posts = getAllPosts($pdo) ?>
 
-<article>
-    <h1><?php echo $config['title']; ?></h1>
-    <p>This is the home page.</p>
-    <?php if (isset($_SESSION['user'])) : ?>
-        <h2>Welcome <?php echo getUserById($id, $pdo)['name']; ?>!</h2>
-    <?php endif; ?>
+<article class="posts-container">
+    <?php require __DIR__ . '/views/error.php'; ?>
+    <?php foreach ($posts as $post) : ?>
+        <div class="post">
+            <h2><?php echo $post['title'] ?></h2>
+            <img src="<?php echo $post['image'] ?>">
+            <p><?php echo $post['content'] ?></p>
+            <a class="like">Like</a>
+        </div>
+    <?php endforeach; ?>
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>
