@@ -66,3 +66,39 @@ if (!function_exists('userExists')) {
         return true;
     }
 }
+if (!function_exists('getUsersPosts')) {
+    /**
+     * returns an array with all posts created by user
+     *
+     *@param int $id
+     *@param PDO $pdo
+     *
+     * @return array
+     */
+    function getUsersPosts(int $id, PDO $pdo): array
+    {
+        $statement = $pdo->prepare('SELECT * FROM posts WHERE users_id=:id');
+        $statement->execute([':id' => $id]);
+        $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $posts;
+    }
+}
+if (!function_exists('getAuthor')) {
+    /**
+     *
+     * @param int $id
+     * @param PDO $pdo
+     *
+     * @return string
+     *
+     */
+
+    function getAuthor(int $id, PDO $pdo)
+    {
+        $statement = $pdo->prepare('SELECT name FROM users WHERE id=:id');
+        $statement->execute([':id' => $id]);
+        $name = $statement->fetch(PDO::FETCH_ASSOC);
+        return $name['name'];
+    }
+}
