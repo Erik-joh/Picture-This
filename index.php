@@ -10,9 +10,11 @@
                 <p><?php echo $post['content'] ?></p>
                 <form action="app/posts/likes.php" method="post" class="like-form">
                     <input type="hidden" name="like" value="<?php echo $post['id'] ?>">
-                    <button type="Submit" class="btn btn-primary <?php echo ifLiked($id, $post['id'], $pdo) ?>"><?php echo unlikeOrLike($id, $post['id'], $pdo) ?></button>
-                    <span>Number of likes:</span>
-                    <span class="total-likes"><?php echo $post['likes'] ?></span>
+                    <button type="Submit" class="btn btn-danger <?php echo ifLiked($id, $post['id'], $pdo) ?>"><?php echo unlikeOrLike($id, $post['id'], $pdo) ?></button>
+                    <div class="total-likes">
+                        <span>Number of likes:</span>
+                        <span class="total-likes"><?php echo $post['likes'] ?></span>
+                    </div>
                 </form>
             </div>
         <?php endforeach; ?>

@@ -1,0 +1,27 @@
+.icon {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .icon {
+        display: block;
+    }
+    .nav-menu a {
+        display: none;
+    }
+    .nav-menu .icon {
+        display: block;
+    }
+
+    .responsive {
+        position: relative;
+
+        width: 20%;
+    }
+
+    .responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}

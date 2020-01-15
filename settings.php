@@ -7,15 +7,16 @@
             <label for="avatar">Choose a PNG image to upload</label>
             <input type="file" name="avatar" id="avatar" accept=".png" required>
         </div>
-        <span><img src="<?php if (isset($id)) {
-                            echo getUserById($id, $pdo)['avatar'];
-                        } ?>" class="avatar-navigation"></span>
+        <img src="<?php if (isset($id)) {
+                        echo getUserById($id, $pdo)['avatar'];
+                    } ?>" class="avatar-navigation mt-2 mb-2 mr-4">
 
-        <button type="submit">Upload</button>
+
+        <button class="btn btn-primary" type="submit">Upload</button>
     </form>
 </article>
 <article>
-    <h1>Edit profile</h1>
+    <h1 class="h1 mt-3">Edit profile</h1>
 
     <form action="app/users/update.php" method="post">
         <div class="form-group">

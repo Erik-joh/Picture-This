@@ -11,7 +11,7 @@
         </div>
         <div>
             <label for="image">Choose a PNG image to upload for your post</label>
-            <input class="form-control" type="file" name="image" accept=".png" required>
+            <input type="file" name="image" accept=".png" required>
         </div>
         <div>
             <label for="description">Enter your description here:</label>

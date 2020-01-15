@@ -1,6 +1,30 @@
-.Like {
-    background-color: red;
+/* .post-button {
+    border-radius: 5px;
 }
-.Unlike {
+.Like {
+    color: black;
+    background-color: red;
+    border-color: red;
+}
+.Like :hover {
+    color: red;
     background-color: black;
 }
+.Unlike {
+    color: red;
+    background-color: black;
+    border-color: red;
+}
+.Unlike :hover {
+    background-color: red;
+    color: black;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: red;
+    border-color: red;
+}
+.btn-primary.focus,
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem red;
+} */

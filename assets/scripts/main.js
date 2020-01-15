@@ -6,7 +6,7 @@ likeForms.forEach(likeForm => {
     likeForm.addEventListener("submit", event => {
         event.preventDefault();
         let likeButton = likeForm.querySelector("button");
-        let numberOfLikes = likeForm.lastElementChild;
+        let numberOfLikes = likeForm.lastElementChild.lastElementChild;
         if (likeButton.classList.contains("Unlike")) {
             likeButton.classList.replace("Unlike", "Like");
             likeButton.textContent = "Unlike";
@@ -23,4 +23,10 @@ likeForms.forEach(likeForm => {
             .then(response => response.json())
             .then(result => (numberOfLikes.textContent = result));
     });
+});
+
+const hamburger = document.querySelector(".icon");
+const navMenu = document.querySelector(".nav-menu");
+hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("responsive");
 });
