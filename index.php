@@ -1,6 +1,6 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 <?php $posts = getAllPosts($pdo) ?>
-<?php if (isset($_SESSION['id'])) : ?>
+<?php if (isset($_SESSION['user']['id'])) : ?>
     <article class="posts-container">
         <?php require __DIR__ . '/views/error.php'; ?>
         <?php foreach ($posts as $post) : ?>

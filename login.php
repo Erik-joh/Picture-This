@@ -1,7 +1,5 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
-
-
 <article>
     <h1>Login</h1>
     <?php require __DIR__ . '/views/error.php' ?>
