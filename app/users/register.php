@@ -12,7 +12,7 @@ if (isset($_POST['email'], $_POST['password'], $_POST['name'])) {
         errorMessage('User already exists');
         redirect('/register.php');
     }
-    $statement = $pdo->prepare('INSERT INTO users (name,email,password) VALUES (:name,:email,:password)');
+    $statement = $pdo->prepare('INSERT INTO users (name,email,password,avatar) VALUES (:name,:email,:password,"Empty")');
     $statement->execute([':name' => $name, ':email' => $email, ':password' => $password]);
 
     redirect('/login.php');
