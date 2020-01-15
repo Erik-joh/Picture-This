@@ -1,6 +1,32 @@
 # Picture-This
+## About
+This is an assignment were we built an Instagram clone with the help of PHP,Javascript,CSS,HTML and SQLite.
 
-# Code review
+## Requirements
+
+* As a user I should be able to create an account. 
+* As a user I should be able to login.
+* As a user I should be able to logout.
+* As a user I should be able to edit my account email, password and biography.
+* As a user I should be able to upload a profile avatar image.
+* As a user I should be able to create new posts with image and description.
+* As a user I should be able to edit my posts.
+* As a user I should be able to delete my posts.
+* As a user I should be able to like posts.
+* As a user I should be able to remove likes from posts.
+
+## Getting started
+
+* First clone this repository to your computer 
+* Start a php server in your terminal by writing php -s localhost:8000
+* Then open your browser and type localhost:8000
+
+## Testers
+
+* Henric Björkvall
+* Jesper Lundqvist
+
+## Code review
 By <a href="https://github.com/emeliepetersson"> Emelie Petersson </a>
 
 [.gitignore#1](https://github.com/Erik-joh/Picture-This/blob/master/.gitignore#L1) - You have ignored the images folder, which prevents me from seeing my uploaded posts and profile image. Try adding: "assets/images/*" AND "!assets/images/.gitkeep" and add a .gitkeep file in your images folder.
@@ -24,3 +50,9 @@ By <a href="https://github.com/emeliepetersson"> Emelie Petersson </a>
 [post.php#](https://github.com/Erik-joh/Picture-This/blob/master/post.php) - Could be nice to get som kind of confirmation message when you have uploaded a post.
 
 Really nice and clean code! Well done!
+
+## Made by
+* Erik Johannesson
+
+## License
+This project is licensed under MIT license
