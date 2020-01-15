@@ -27,10 +27,14 @@ if (!function_exists('getUserById')) {
      */
     function getUserById(int $id, PDO $pdo): array
     {
-        $statement = $pdo->prepare('SELECT * FROM users WHERE id=:id');
+        $statement = $pdo->prepare('SELECT * FROM users WHERE id = :id');
         $statement->execute([':id' => $id]);
         $user = $statement->fetch(PDO::FETCH_ASSOC);
-        return $user;
+        if ($user) {
+            return $user;
+        } else {
+            return [];
+        }
     }
 }
 if (!function_exists('errorMessage')) {

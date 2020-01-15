@@ -34,7 +34,8 @@ if (isset($_POST['email'], $_POST['name'], $_POST['biography'], $_POST['password
                 ':id' => $id
             ]);
         }
+    } else {
+        errorMessage('Wrong password');
     }
-    errorMessage('Wrong password');
 }
 redirect('/settings.php');
