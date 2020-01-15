@@ -121,7 +121,7 @@ if (!function_exists('getAllPosts')) {
 }
 if (!function_exists('ifLiked')) {
     /**
-     * returns an array with all posts
+     * returns an string depending on the user has liked a post or not
      *
      *@param int $userId
      *@param int $postId
@@ -136,8 +136,28 @@ if (!function_exists('ifLiked')) {
         $posts = $statement->fetch(PDO::FETCH_ASSOC);
 
         if (!$posts) {
-            return "unliked";
+            return "Unlike";
         }
-        return "liked";
+        return "Like";
+    }
+}
+if (!function_exists('unlikeOrLike')) {
+    /**
+     * returns an string depending on the user has liked a post or not
+     *
+     *@param int $userId
+     *@param int $postId
+     *@param PDO $pdo
+     *
+     * @return string
+     */
+    function unlikeOrLike(int $userId, int $postId, PDO $pdo): string
+    {
+        $result = ifLiked($userId, $postId, $pdo);
+
+        if ($result === "Unlike") {
+            return "Like";
+        }
+        return "Unlike";
     }
 }

@@ -7,10 +7,12 @@ likeForms.forEach(likeForm => {
         event.preventDefault();
         let likeButton = likeForm.querySelector("button");
         let numberOfLikes = likeForm.lastElementChild;
-        if (likeButton.classList.contains("unliked")) {
-            likeButton.classList.replace("unliked", "liked");
+        if (likeButton.classList.contains("Unlike")) {
+            likeButton.classList.replace("Unlike", "Like");
+            likeButton.textContent = "Unlike";
         } else {
-            likeButton.classList.replace("liked", "unliked");
+            likeButton.classList.replace("Like", "Unlike");
+            likeButton.textContent = "Like";
         }
         const likeFormData = new FormData(likeForm);
 
