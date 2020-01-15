@@ -20,7 +20,7 @@ if (isset($_POST['title'], $_FILES['image'], $_POST['description'])) {
 
     // $statement = $pdo->prepare('INSERT INTO posts (title,image,content,users_id) VALUES ("test","image","content",2)');
     // $statement->execute();
-    $statement = $pdo->prepare('INSERT INTO posts (title,content,users_id,image) VALUES (:title,:content,:id,:image)');
+    $statement = $pdo->prepare('INSERT INTO posts (title,content,users_id,image,likes) VALUES (:title,:content,:id,:image,0)');
 
     $statement->execute([':title' => $title, ':image' => $destination, ':content' => $description, ':id' => $id]);
 
