@@ -1,2 +1,4 @@
 assets/images/avatars/*
 assets/images/postsImages/*
+!assets/images/avatars/.gitkeep
+!assets/images/postsImages/.gitkeep
