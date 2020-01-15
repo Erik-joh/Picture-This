@@ -10,7 +10,7 @@
             <p><?php echo $post['content'] ?></p>
             <form action="app/posts/likes.php" method="post" class="like-form">
                 <input type="hidden" name="like" value="<?php echo $post['id'] ?>">
-                <button type="Submit" class="btn btn-primary unliked">Like</button>
+                <button type="Submit" class="btn btn-primary <?php echo ifLiked($id, $post['id'], $pdo) ?>">Like</button>
                 <span>Number of likes:</span>
                 <span class="total-likes"><?php echo $post['likes'] ?></span>
             </form>

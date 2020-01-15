@@ -104,7 +104,7 @@ if (!function_exists('getAuthor')) {
 }
 if (!function_exists('getAllPosts')) {
     /**
-     * returns an array with all posts in the
+     * returns an array with all posts
      *
      *@param PDO $pdo
      *
@@ -117,5 +117,27 @@ if (!function_exists('getAllPosts')) {
         $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         return $posts;
+    }
+}
+if (!function_exists('ifLiked')) {
+    /**
+     * returns an array with all posts
+     *
+     *@param int $userId
+     *@param int $postId
+     *@param PDO $pdo
+     *
+     * @return string
+     */
+    function ifLiked(int $userId, int $postId, PDO $pdo): string
+    {
+        $statement = $pdo->prepare('SELECT * FROM likes WHERE users_id=:userId AND posts_id=:postId');
+        $statement->execute([':userId' => $userId, ':postId' => $postId]);
+        $posts = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if (!$posts) {
+            return "unliked";
+        }
+        return "liked";
     }
 }

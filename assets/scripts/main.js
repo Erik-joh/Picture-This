@@ -9,10 +9,8 @@ likeForms.forEach(likeForm => {
         let numberOfLikes = likeForm.lastElementChild;
         if (likeButton.classList.contains("unliked")) {
             likeButton.classList.replace("unliked", "liked");
-            likeButton.textContent = "Unlike";
         } else {
             likeButton.classList.replace("liked", "unliked");
-            likeButton.textContent = "Like";
         }
         const likeFormData = new FormData(likeForm);
 
