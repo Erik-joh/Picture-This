@@ -25,6 +25,7 @@ This is an assignment were we built an Instagram clone with the help of PHP,Java
 
 * Henric Björkvall
 * Jesper Lundqvist
+* Viktor Puke
 
 ## Code review
 By <a href="https://github.com/emeliepetersson"> Emelie Petersson </a>
