@@ -1,8 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <?php if (isset($id) && getUserById($id, $pdo)['avatar'] !== "Empty") : ?>
-        <img src="<?php echo getUserById($id, $pdo)['avatar']
-                    ?>" class="avatar-navigation">
+    <?php if (isset($id)) : ?>
+        <?php if (getUserById($id, $pdo)['avatar'] !== "Empty") : ?>
+            <img src="<?php echo getUserById($id, $pdo)['avatar']
+                        ?>" class="avatar-navigation">
+        <?php endif; ?>
     <?php endif; ?>
     <a class="navbar-brand" href="#"><?php echo $config['title']; ?></a>
 
