@@ -2,3 +2,15 @@
 body {
     width: 100vw;
 }
+
+.search-image {
+    width: 100px;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
