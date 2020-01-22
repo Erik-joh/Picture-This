@@ -195,3 +195,25 @@ if (!function_exists('searchForUser')) {
         return $usersFromSearch;
     }
 }
+if (!function_exists('isFollowing')) {
+
+    /**
+     * 
+     * @param int $userId
+     * @param int $followerId
+     * @param PDO $pdo
+     * @return bool
+     * 
+     */
+
+    function isFollowing(PDO $pdo, int $userId, int $followerId)
+    {
+        $statement = $pdo->prepare('SELECT * FROM followers WHERE user_id = :userId AND follower_id = :followerId');
+
+        $statement->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $statement->bindParam(':followerId', $followerId, PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+}
