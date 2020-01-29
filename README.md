@@ -14,10 +14,11 @@ This is an assignment were we built an Instagram clone with the help of PHP,Java
 * As a user I should be able to delete my posts.
 * As a user I should be able to like posts.
 * As a user I should be able to remove likes from posts.
-
+## Contributions
 * Features added by <a href="https://github.com/Vpuke"> Viktor Puke </a>
 * As a user I should be able to follow and unfollow other users and see their feeds.
 * As a use I should be able to search and see a list of posts by query.
+link to pull request: https://github.com/Erik-joh/Picture-This/pull/2
 
 ## Getting started
 
