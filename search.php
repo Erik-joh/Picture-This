@@ -24,7 +24,7 @@
 
         <?php foreach ($users as $user) : ?>
             <div class="search-results">
-                <form action="/userposts.php" method="get">
+                <form class="search-form" action="/userposts.php" method="get">
                     <img class="search-image" src="<?php echo $user['avatar'] ?>" alt="">
                     <button type="submit" name="id" value="<?php echo $user['id'] ?>"><?php echo $user['name'] ?></button>
                 </form>
