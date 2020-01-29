@@ -165,3 +165,55 @@ if (!function_exists('unlikeOrLike')) {
         return "Unlike";
     }
 }
+
+if (!function_exists('searchForUser')) {
+
+    /**
+     * 
+     * @param string $search
+     * @param PDO $pdo
+     * @return array
+     * 
+     */
+
+    function searchForUser($search, $pdo)
+    {
+        $search = trim(filter_var($_POST['search'], FILTER_SANITIZE_STRING));
+        $search = "%$search%";
+
+        $statement = $pdo->prepare('SELECT id, name, avatar FROM users WHERE name LIKE :search');
+
+        if (!$statement) {
+            die(var_dump($pdo->errorInfo()));
+        }
+
+        $statement->bindParam(':search', $search, PDO::PARAM_STR);
+        $statement->execute();
+
+        $usersFromSearch = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $usersFromSearch;
+    }
+}
+if (!function_exists('isFollowing')) {
+
+    /**
+     * 
+     * @param int $userId
+     * @param int $followerId
+     * @param PDO $pdo
+     * @return bool
+     * 
+     */
+
+    function isFollowing(PDO $pdo, int $userId, int $followerId)
+    {
+        $statement = $pdo->prepare('SELECT * FROM followers WHERE user_id = :userId AND follower_id = :followerId');
+
+        $statement->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $statement->bindParam(':followerId', $followerId, PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+}

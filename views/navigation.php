@@ -29,6 +29,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/settings.php">Settings</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/search.php">Search</a>
+            </li>
 
         <?php else : ?>
             <li class="nav-item">
